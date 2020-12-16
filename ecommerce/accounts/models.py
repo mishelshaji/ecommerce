@@ -134,12 +134,12 @@ class User(AbstractBaseUser):
     @property
     def is_merchant(self):
         "Is the user a student?"
-        return self.student
+        return self.merchant
     
     @property
     def is_customer(self):
         "Is the user an instructor?"
-        return self.instructor
+        return self.customer
 
     @property
     def is_active(self):
