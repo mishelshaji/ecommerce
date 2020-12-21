@@ -149,3 +149,48 @@ class User(AbstractBaseUser):
     @property
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
+
+class CustomerDetails(models.Model):
+    STATES = (
+        ('Kerala', 'Kerala'),
+        ('Karnataka', 'Karnataka')
+    )
+
+    id = models.BigAutoField(
+        primary_key=True,
+    )
+
+    address = models.TextField(
+        verbose_name="Address",
+        max_length=300,
+        validators=[
+            validators.MinLengthValidator(10, "Address is too short")
+        ]
+    )
+
+    pin = models.CharField(
+        verbose_name="Postal Code",
+        max_length=6,
+        validators=[
+            validators.RegexValidator('^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$', "Invalid Pin Number")
+        ]
+    )
+
+    city = models.CharField(
+        verbose_name="City",
+        max_length=50,
+        validators=[
+            validators.MinLengthValidator(3, "Invalid city name")
+        ]
+    )
+
+    state = models.CharField(
+        max_length=50,
+        choices=STATES,
+        default='Kerala'
+    )
+
+    user = models.OneToOneField(
+        to=User,
+        on_delete=models.CASCADE
+    )
