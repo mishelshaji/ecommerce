@@ -22,7 +22,7 @@ class CustomerDetailsForm(forms.ModelForm):
                     'class': 'form-control'
                 }
             ),
-            'city': forms.Select(
+            'state': forms.Select(
                 attrs={
                     'class': 'form-control'
                 }

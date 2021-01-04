@@ -1,12 +1,14 @@
+{% load widget_tweaks %}
+
 <div class="col-xl-6 col-lg-6 col-md-8">
     <div class="box_account">
         <h3 class="new_client">New Client</h3> <small class="float-right pt-2">* Required Fields</small>
         <div class="form_container">
             <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email_2" placeholder="Email*">
+                {% render_field form.username type="email" class="form-control" placeholder=form.username.label %}
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password_in_2" id="password_in_2" value="" placeholder="Password*">
+                {% render_field form.password class="form-control" placeholder=form.password.label %}
             </div>
             <hr>
             <div class="form-group">
@@ -21,53 +23,31 @@
             </div>
             <div class="private box">
                 <div class="row no-gutters">
-                    <div class="col-6 pr-1">
+                    <div class="col-12 pr-1">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name*">
+                            <label>{{ detailsform.address.label }}</label>
+                            {{ detailsform.address }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>{{ detailsform.city.label }}</label>
+                            {{ detailsform.city }}
                         </div>
                     </div>
                     <div class="col-6 pl-1">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name*">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Address*">
+                            <label>{{ detailsform.state.label }}</label>
+                            {{ detailsform.state }}
                         </div>
                     </div>
                 </div>
                 <!-- /row -->
                 <div class="row no-gutters">
-                    <div class="col-6 pr-1">
+                    <div class="col-12 pr-1">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="City*">
-                        </div>
-                    </div>
-                    <div class="col-6 pl-1">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Postal Code*">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row -->
-                
-                <div class="row no-gutters">
-                    <div class="col-6 pr-1">
-                        <div class="form-group">
-                            <div class="custom-select-form">
-                                <select class="wide add_bottom_10" name="country" id="country" style="display: none;">
-                                        <option value="" selected="">Country*</option>
-                                        <option value="Europe">Europe</option>
-                                        <option value="United states">United states</option>
-                                        <option value="Asia">Asia</option>
-                                </select><div class="nice-select wide add_bottom_10" tabindex="0"><span class="current">Country*</span><ul class="list"><li data-value="" class="option selected">Country*</li><li data-value="Europe" class="option">Europe</li><li data-value="United states" class="option">United states</li><li data-value="Asia" class="option">Asia</li></ul></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 pl-1">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Telephone *">
+                            <label>{{ detailsform.pin.label }}</label>
+                            {{ detailsform.pin }}
                         </div>
                     </div>
                 </div>
