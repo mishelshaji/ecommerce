@@ -13,10 +13,12 @@
             </div>
             <div class="divider"><span>Or</span></div>
             <div class="form-group">
-                {% render_field form.username type="email" class="form-control" placeholder=form.username.label %}
+                <label>{{ loginform.username.label }}</label>
+                {% render_field loginform.username type="email" class="form-control" placeholder=loginform.username.label %}
             </div>
             <div class="form-group">
-                {% render_field form.password class="form-control" placeholder=form.password.label %}
+                <label>{{ loginform.password.label }}</label>
+                {% render_field loginform.password class="form-control" placeholder=loginform.password.label %}
             </div>
             <div class="clearfix add_bottom_15">
                 <div class="checkboxes float-left">
@@ -39,20 +41,4 @@
         <!-- /form_container -->
     </div>
     <!-- /box_account -->
-    <div class="row">
-        <div class="col-md-6 d-none d-lg-block">
-            <ul class="list_ok">
-                <li>Find Locations</li>
-                <li>Quality Location check</li>
-                <li>Data Protection</li>
-            </ul>
-        </div>
-        <div class="col-md-6 d-none d-lg-block">
-            <ul class="list_ok">
-                <li>Secure Payments</li>
-                <li>H24 Support</li>
-            </ul>
-        </div>
-    </div>
-    <!-- /row -->
 </div>
