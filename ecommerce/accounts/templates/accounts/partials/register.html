@@ -1,7 +1,7 @@
 {% load widget_tweaks %}
 
 <div class="col-xl-6 col-lg-6 col-md-8">
-    <div class="box_account">
+    <form class="box_account" action="{% url 'accounts_register' %}" method="POST">
         <h3 class="new_client">New Client</h3>
         <div class="form_container">
             <div class="row no-gutters">
@@ -17,6 +17,13 @@
                         {{ form.last_name }}
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email }}
+                <ul>
+                    {{ form.email.errors.as_ul }}
+                </ul>
             </div>
             <div class="form-group">
                 {{ form.password.label }}
@@ -71,55 +78,6 @@
                 
             </div>
             <!-- /private -->
-            <div class="company box" style="display: none;">
-                <div class="row no-gutters">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Company Name*">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Address">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row -->
-                <div class="row no-gutters">
-                    <div class="col-6 pr-1">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="City*">
-                        </div>
-                    </div>
-                    <div class="col-6 pl-1">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Postal Code*">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row -->
-                <div class="row no-gutters">
-                    <div class="col-6 pr-1">
-                        <div class="form-group">
-                            <div class="custom-select-form">
-                                <select class="wide add_bottom_10" name="country" id="country_2" style="display: none;">
-                                        <option value="" selected="">Country*</option>
-                                        <option value="Europe">Europe</option>
-                                        <option value="United states">United states</option>
-                                        <option value="Asia">Asia</option>
-                                </select><div class="nice-select wide add_bottom_10" tabindex="0"><span class="current">Country*</span><ul class="list"><li data-value="" class="option selected">Country*</li><li data-value="Europe" class="option">Europe</li><li data-value="United states" class="option">United states</li><li data-value="Asia" class="option">Asia</li></ul></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 pl-1">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Telephone *">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /company -->
             <hr>
             <div class="form-group">
                 <label class="container_check">Accept <a href="#0">Terms and conditions</a>
@@ -127,9 +85,12 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div class="text-center"><input type="submit" value="Register" class="btn_1 full-width"></div>
+            <div class="text-center">
+                {% csrf_token %}
+                <input type="submit" value="Register" class="btn_1 full-width">
+            </div>
         </div>
         <!-- /form_container -->
-    </div>
+    </form>
     <!-- /box_account -->
 </div>

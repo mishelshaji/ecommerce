@@ -1,0 +1,16 @@
+{% if messages %}
+<style>
+    .alert-message{
+        border:1px solid #C0C0C0; 
+        background-color: #bad6f6;
+        padding: 10px; 
+        border-radius: 10px;
+    }
+</style>
+{% for message in messages %}
+<div class="alert-message mb-3">
+    {{ message }}
+</div>
+{% endfor %}
+
+{% endif %}
