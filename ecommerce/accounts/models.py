@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
         )
         user.staff = True
         user.admin = True
-        user.student = False
+        user.customer = False
         user.save(using=self._db)
         return user
 
