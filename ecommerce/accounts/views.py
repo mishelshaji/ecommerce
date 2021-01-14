@@ -19,13 +19,14 @@ def user_authenticate(request):
             username = lf.cleaned_data.get('username')
             password = lf.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
-
+            login(request, user)
             if user.is_admin:
                 return redirect('admin_home')
             elif user.is_customer:
                 return redirect('customer_home')
         
         # If the form is not valid
+        print(lf.errors)
         context = {}
         context['form'] = RegistrationForm()
         context['detailsform'] = CustomerDetailsForm()
