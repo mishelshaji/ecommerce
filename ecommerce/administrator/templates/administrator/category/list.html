@@ -1,0 +1,20 @@
+{% extends 'user/shared/base.html' %}
+
+{% block content %}
+    <h1 class="text-center">Category List</h1>
+    <div class="container">
+        
+        {% if object_list %}
+            <ul class="list-group">
+                {% for i in object_list %}
+                    <li class="list-group-item">{{ i }}</li>
+                {% endfor %}          
+            </ul>
+        {% else %}
+        <div class="alert alert-warning">
+            No Category found
+        </div>
+        {% endif %}
+            
+    </div>
+{% endblock content %}

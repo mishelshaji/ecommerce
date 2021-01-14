@@ -1,0 +1,14 @@
+{% extends 'user/shared/base.html' %}
+
+{% block content %}
+    <h1 class="text-center">Manage Category</h1>
+    <div class="container">
+        <form method="POST">
+            {{ form.as_p }}
+            <div class="form-group d-flex">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success ml-auto">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
